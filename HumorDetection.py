@@ -2,16 +2,9 @@ import numpy as np
 import pandas as pd
 import nltk
 import string
-import seaborn as sns
-from matplotlib import pyplot as plt
-from matplotlib import style
 
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score
-from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import accuracy_score
 from sklearn.svm import SVC, LinearSVC
-from sklearn.metrics import f1_score, accuracy_score
 
 
 ''' Read in the data. '''
@@ -38,24 +31,16 @@ svc_ngram = LinearSVC()
 svc_ngram.fit(train_arr_ngram, train_y_ngram)
 svc_ngram_predicted = svc_ngram.predict(test_arr_ngram)
 svc_accuracy_ngram = accuracy_score(test_y_ngram, svc_ngram_predicted) * 100
-
-print(svc_accuracy_ngram)
-
+#print(svc_accuracy_ngram)
 
 
 
-'''
+
+''' Returns whether or not a user inputted string is funny. '''
 def is_funny(str):
-    str = Tokenize(str)
-    str = lower_case(str)
-    str = remove_punc(str)
-    str = remove_numbers(str)
-    str = remove_stopwords(str)
-    str = lemmatize(str)
-    str = ''.join(i + ' ' for i in str)
-    predicted_val = nb_ngram.predict(str)
+    test = tfidf_ngram.transform([str])
+    predicted_val = svc_ngram.predict(test.toarray())
     return predicted_val
-'''
 
 
-# print(is_funny("I like to eat."))
+#print(is_funny("Where do fish sleep? In the riverbed."))
