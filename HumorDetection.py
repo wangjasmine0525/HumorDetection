@@ -43,4 +43,4 @@ def is_funny(str):
     return predicted_val
 
 
-#print(is_funny("Where do fish sleep? In the riverbed."))
+print(is_funny(""))
