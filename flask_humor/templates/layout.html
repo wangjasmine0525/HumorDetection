@@ -2,11 +2,8 @@
 <DOCTYPE html>
 <html>
 <head>
-    {% if title %}
-        <title>Humor Detection - {{ title }}</title>
-    {% else %}
-        <title>Humor Detection</title>
-    {% endif }
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    {% block head %} {% endblock %}
 </head>
 <body>
     {% block content %}{% endblock %}

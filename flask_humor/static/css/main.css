@@ -1,0 +1,21 @@
+body html{
+  margin: 0;
+  font-family: Helvetica, sans-serif;
+  text-align: center;
+}
+
+.content {
+  margin: 0 auto;
+  width: 400px;
+}
+
+.form {
+  margin-top: 20px;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#content {
+  width: 70%;
+}
