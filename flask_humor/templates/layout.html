@@ -1,0 +1,14 @@
+<!-- default layout for each page -->
+<DOCTYPE html>
+<html>
+<head>
+    {% if title %}
+        <title>Humor Detection - {{ title }}</title>
+    {% else %}
+        <title>Humor Detection</title>
+    {% endif }
+</head>
+<body>
+    {% block content %}{% endblock %}
+</body>
+</html>

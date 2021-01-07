@@ -8,7 +8,8 @@ from sklearn.svm import SVC, LinearSVC
 
 
 ''' Read in the data. '''
-data = pd.read_csv('data/master_dataset.csv')
+filepath = '/Users/JasmineW/Desktop/Projects/HumorDetection/data/master_dataset.csv'
+data = pd.read_csv(filepath)
 
 from sklearn.model_selection import train_test_split
 
@@ -43,4 +44,4 @@ def is_funny(str):
     return predicted_val
 
 
-print(is_funny(""))
+print(is_funny("I like to eat"))
