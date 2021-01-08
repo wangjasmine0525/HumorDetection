@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="content">
+
+  {% if joke|length < 1 %}
+  <h1 style="text-align: center"> Please enter a valid joke! </h1>
+  {% else %}
+  <h1 style="text-align: center"> results </h1>
+    {% if funny == 1 %}
+      <img src="{{url_for('static', filename='laugh.png')}}" align="middle" />
+    {% else %}
+      <img src="{{url_for('static', filename='lame.png')}}" align="middle" />
+    {% endif %}
+  </div>
+  {% endif %}
+</div>
+{% endblock content %}

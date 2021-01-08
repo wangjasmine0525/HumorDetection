@@ -1,9 +1,13 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/", methods=['POST', 'GET'])
 def home():
-    return render_template('home.html')
+    if request.method =='POST':
+        joke = request.form['content']
+        return render_template('results.html', joke=joke, funny=1)
+    else:
+        return render_template('home.html')
 
 #checks if running on local host
 if __name__ == '__main__':
