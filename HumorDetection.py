@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import nltk
 import string
+import pickle
 
 from sklearn.metrics import accuracy_score
 from sklearn.svm import SVC, LinearSVC
@@ -11,11 +12,14 @@ from sklearn.svm import SVC, LinearSVC
 filepath = '/Users/JasmineW/Desktop/Projects/HumorDetection/data/master_dataset.csv'
 data = pd.read_csv(filepath)
 
-''' Transform features using TfidfVectorizer '''
+
+''' Split Test Train. '''
 from sklearn.model_selection import train_test_split
 
 train_x_ngram, test_x_ngram, train_y_ngram, test_y_ngram = train_test_split(data.Line, data.Funny, test_size = 0.2, random_state = 2)
 
+
+''' Transform data using TfidfVectorizer. '''
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 tfidf_ngram = TfidfVectorizer(ngram_range = (1, 2))
@@ -26,11 +30,12 @@ train_arr_ngram = train_1_ngram.toarray()
 test_arr_ngram = test_1_ngram.toarray()
 
 
-# SVM w/ngram
+'''# Train data using SVM w/ngram '''
 svc_ngram = LinearSVC()
 svc_ngram.fit(train_arr_ngram, train_y_ngram)
 svc_ngram_predicted = svc_ngram.predict(test_arr_ngram)
 svc_accuracy_ngram = accuracy_score(test_y_ngram, svc_ngram_predicted) * 100
+
 
 ''' Returns whether or not a user inputted string is funny. '''
 def is_funny(str):
@@ -39,3 +44,10 @@ def is_funny(str):
     return predicted_val
 
 print(is_funny("I like to eat"))
+
+
+''' Saving model to disk '''
+pickle.dump(svc, open('HumorDetection.pkl', 'wb'))
+
+''' Loading model to compare the results '''
+model = pickle.load(open('HumorDetection.pkl', 'rb'))

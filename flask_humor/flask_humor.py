@@ -1,5 +1,9 @@
+import numpy as np
 from flask import Flask, render_template
+import pickle 
+
 app = Flask(__name__) 
+svc = pickle.load(open("HumorDetection.pkl", "rb"))
 
 @app.route("/")
 @app.route("home")
