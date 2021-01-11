@@ -1,6 +1,14 @@
-<!-- Example -->
-<!-- extends 'block content' in layout.html --> 
 {% extends "layout.html" %}
-{% block content %}
-    <p> Hello! Type your joke here! </p>
-{% endblock content %}
+
+{% block body %}
+<div class="content">
+
+  <div class="form">
+    <h1> Are you funny? </h1>
+    <form action="/" method="POST">
+      <input class="search" type="text" name="content" id="content" placeholder="Enter your joke here...">
+      <button class="button"> Submit </button>
+    </form>
+  </div>
+</div>
+{% endblock body %}

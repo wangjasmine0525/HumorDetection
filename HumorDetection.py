@@ -41,13 +41,12 @@ svc_accuracy_ngram = accuracy_score(test_y_ngram, svc_ngram_predicted) * 100
 def is_funny(str):
     test = tfidf_ngram.transform([str])
     predicted_val = svc_ngram.predict(test.toarray())
-    return predicted_val
+    return predicted_val[0]
 
 print(is_funny("I like to eat"))
 
+''' Saving TFIDF Vectorizer '''
+pickle.dump(tfidf_ngram, open('tfidf.pkl', 'wb'))
 
 ''' Saving model to disk '''
-pickle.dump(svc, open('HumorDetection.pkl', 'wb'))
-
-''' Loading model to compare the results '''
-model = pickle.load(open('HumorDetection.pkl', 'rb'))
+pickle.dump(svc_ngram, open('HumorDetection.pkl', 'wb'))

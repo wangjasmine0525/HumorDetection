@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="content">
+
+  {% if joke|length < 1 %}
+  <h3 style="text-align: center"> You didn't enter a joke. Please enter a valid joke! </h3>
+  {% else %}
+    {% if funny == 1 %}
+      <img src="laugh.png" align="middle" class="emoji"/>
+      <h3 style="text-align: center"> You're quite the jokester! </h3>
+    {% else %}
+      <img src="lame.png" align="middle" class="emoji"/>
+      <h3 style="text-align: center"> You're lame. </h3>
+    {% endif %}
+
+  {% endif %}
+  <a href="/">
+    <button class="button">Try another joke</button>
+  </a>
+</div>
+{% endblock body %}
