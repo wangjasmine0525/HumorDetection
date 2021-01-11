@@ -5,7 +5,7 @@ app = Flask(__name__)
 def home():
     if request.method =='POST':
         joke = request.form['content']
-        return render_template('results.html', joke=joke, funny=1)
+        return render_template('results.html', joke=joke, funny=0)
     else:
         return render_template('home.html')
 
