@@ -7,10 +7,12 @@
   <h3 style="text-align: center"> You didn't enter a joke. Please enter a valid joke! </h3>
   {% else %}
     {% if funny == 1 %}
-      <img src="{{url_for('static',filename = 'images/laugh.png')}}" align="middle" class="emoji"/>
+      <!--<img src="/static/images/laugh.png" align="middle" class="emoji"/>-->
+      <p class="emoji">&#128518</p>
       <h3 style="text-align: center"> You're quite the jokester! </h3>
     {% else %}
-      <img src="{{url_for('static',filename = 'images/lame.png')}}" align="middle" class="emoji"/>
+      <!--<img src="/static/images/lame.png" align="middle" class="emoji"/>-->
+      <p class="emoji">&#128528</p>
       <h3 style="text-align: center"> You're lame. </h3>
     {% endif %}
 

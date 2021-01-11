@@ -10,6 +10,7 @@ h1 {
 
 h3 {
   font-size: 25;
+  line-height: 0;
 }
 .content {
   margin: 0;
@@ -36,6 +37,11 @@ h3 {
   border: none;
   padding: 0px 10px;
 
+}
+
+.emoji {
+  font-size: 100;
+  line-height: 0;
 }
 
 .button {
