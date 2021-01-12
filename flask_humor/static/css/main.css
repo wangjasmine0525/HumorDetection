@@ -6,13 +6,24 @@ body {
 
 h1 {
   font-size: 60;
+  line-height: 0.5;
+  word-wrap: break-word;
+  width: auto;
+}
+
+h2 {
+  font-size: 25;
+  color: #595959;
 }
 
 h3 {
   font-size: 25;
   line-height: 0;
   text-align: center;
+  word-wrap: break-word;
+  width: auto;
 }
+
 .content {
   margin: 0;
   position: absolute;
